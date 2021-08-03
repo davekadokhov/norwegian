@@ -24,10 +24,21 @@ public class VacationsPage {
     @FindBy(css = ".c195_title_item")
     private List<WebElement> headlineElements;
 
+    @FindBy(css = "li[class='c282_list_item']")
+    private List<WebElement> sailingDates;
+
     // Getters
     public List<String> getHeadlineText(){
         List<String> values = new ArrayList<>();
         for(WebElement element : headlineElements){
+            values.add(element.getText());
+        }
+        return values;
+    }
+
+    public List<String> getSailingDatesText(){
+        List<String> values = new ArrayList<>();
+        for(WebElement element : sailingDates){
             values.add(element.getText());
         }
         return values;

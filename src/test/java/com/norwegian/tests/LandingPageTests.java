@@ -9,8 +9,15 @@ public class LandingPageTests extends TestBase {
 
     @Test(groups= {"regression"})
     public void verifyDashboards() {
-        ncl.selectFirstMonth()
-                .verifyResults();
+
+        ncl.selectFirstMonth();
+
+        String month = ncl.getMonth();
+        String year = ncl.getYear();
+        String date = month + "," + year;
+
+        ncl.clickApplyAndFindCruise()
+                .verifyResults(date);
         System.out.println("----pass----");
     }
 }
